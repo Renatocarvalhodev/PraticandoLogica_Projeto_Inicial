@@ -3,7 +3,12 @@ function sortear(){
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
-    if (verificaRange(de, ate, quantidade)){;
+    if (de >= ate) {
+        
+        document.getElementById('resultado').innerHTML = '<label class="texto__paragrafo">Campo "Do número" deve ser inferior ao campo "Até o número". Verifique!</label>'
+        alterarStatusBotao();   
+
+    } else if (verificaRange(de, ate, quantidade)){;
 
         let sorteados = [];
         let numero;
@@ -30,6 +35,7 @@ function sortear(){
         resultado.innerHTML = '<label class="texto__paragrafo">A quantidade de números selecionados é maior do que a quantidade de números possíveis para o sorteio.</label>';  
         alterarStatusBotao();
     }
+    
 }
 
 function verificaRange(de, ate, quantidade){
